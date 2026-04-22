@@ -1,0 +1,64 @@
+<svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg" style="width: 100%; max-width: 300px; height: auto;">
+  <defs>
+    <linearGradient id="frontFace" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFB800" /> <stop offset="40%" stop-color="#FF0080" /> <stop offset="100%" stop-color="#7928CA" /> </linearGradient>
+
+    <linearGradient id="outerTopLeft" x1="100%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#FF0080" />
+      <stop offset="100%" stop-color="#FFB800" />
+    </linearGradient>
+
+    <linearGradient id="outerTopRight" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FF0080" />
+      <stop offset="100%" stop-color="#FF5E00" />
+    </linearGradient>
+
+    <linearGradient id="innerBottomLeft" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#4A00E0" />
+      <stop offset="100%" stop-color="#FF0080" />
+    </linearGradient>
+
+    <linearGradient id="innerBottomRight" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4A00E0" />
+      <stop offset="100%" stop-color="#8E2DE2" />
+    </linearGradient>
+
+    <filter id="neonGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="4" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <g filter="url(#neonGlow)">
+    <polygon points="120,50 30,130 10,100 100,20" fill="url(#outerTopLeft)" />
+
+    <polygon points="120,50 210,130 190,100 100,20" fill="url(#outerTopRight)" />
+
+    <polygon points="120,180 180,130 160,100 100,150" fill="url(#innerBottomRight)" />
+
+    <polygon points="120,180 60,130 40,100 100,150" fill="url(#innerBottomLeft)" />
+
+    <path d="M 120 50 L 210 130 L 120 210 L 30 130 Z M 120 80 L 60 130 L 120 180 L 180 130 Z" fill="url(#frontFace)" fill-rule="evenodd" />
+
+    <g stroke="#ffffff" stroke-width="0.75" stroke-opacity="0.35" fill="none">
+      <polygon points="120,60 200,130 120,200 40,130" />
+      <polygon points="120,70 190,130 120,190 50,130" />
+
+      <line x1="110" y1="35" x2="20" y2="115" />
+      <line x1="105" y1="27" x2="15" y2="107" />
+
+      <line x1="110" y1="35" x2="200" y2="115" />
+      <line x1="105" y1="27" x2="195" y2="107" />
+
+      <line x1="110" y1="165" x2="170" y2="115" />
+      <line x1="110" y1="165" x2="50" y2="115" />
+
+      <line x1="120" y1="50" x2="100" y2="20" stroke-opacity="0.7"/>
+      <line x1="30" y1="130" x2="10" y2="100" stroke-opacity="0.7"/>
+      <line x1="210" y1="130" x2="190" y2="100" stroke-opacity="0.7"/>
+      <line x1="120" y1="180" x2="100" y2="150" stroke-opacity="0.7"/>
+      <line x1="60" y1="130" x2="40" y2="100" stroke-opacity="0.7"/>
+      <line x1="180" y1="130" x2="160" y2="100" stroke-opacity="0.7"/>
+    </g>
+  </g>
+</svg>
