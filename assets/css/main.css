@@ -6881,6 +6881,8 @@ input, select, textarea {
 				.gallery.style2 article .image img {
 					display: block;
 					width: 100%;
+					height: 250px; /* Standardized height */
+					object-fit: cover; /* Fill the box */
 					border-radius: 0;
 				}
 
@@ -8668,6 +8670,103 @@ input, select, textarea {
 		color: #47D3E5;
 	}
 
+	/* Dropdown Styles */
+	#floating-nav ul li {
+		position: relative;
+	}
+
+	#floating-nav ul li .dropdown {
+		display: none;
+		position: absolute;
+		top: 100%;
+		left: 50%;
+		transform: translateX(-50%);
+		background: rgba(255, 255, 255, 0.95);
+		backdrop-filter: blur(10px);
+		-webkit-backdrop-filter: blur(10px);
+		border-radius: 1rem;
+		padding: 0.5rem 0;
+		min-width: 180px;
+		box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+		border: 1px solid rgba(255, 255, 255, 0.18);
+		margin-top: 0.75rem; /* Reduced margin */
+		z-index: 10001;
+	}
+
+	/* Bridge to prevent dropdown from closing when moving mouse */
+	#floating-nav ul li .dropdown::after {
+		content: '';
+		position: absolute;
+		top: -0.75rem;
+		left: 0;
+		right: 0;
+		height: 0.75rem;
+		background: transparent;
+	}
+
+	/* Arrow for dropdown */
+	#floating-nav ul li .dropdown::before {
+		content: '';
+		position: absolute;
+		top: -8px;
+		left: 50%;
+		transform: translateX(-50%);
+		border-width: 0 8px 8px 8px;
+		border-style: solid;
+		border-color: transparent transparent rgba(255, 255, 255, 0.95) transparent;
+	}
+
+	#floating-nav ul li:hover .dropdown {
+		display: block;
+	}
+
+	#floating-nav ul li .dropdown li {
+		padding: 0;
+		display: block;
+		width: 100%;
+	}
+
+	#floating-nav ul li .dropdown li a {
+		padding: 0.6rem 1.2rem;
+		display: block;
+		white-space: nowrap;
+		font-size: 0.75rem;
+		text-align: center;
+	}
+
+	#floating-nav ul li .dropdown li a:hover {
+		background: rgba(71, 211, 229, 0.1);
+		color: #47D3E5;
+	}
+
+	/* Hero Background Styling */
+	.hero-bg-section {
+		position: relative;
+		overflow: hidden;
+		background-color: #ffffff !important; /* Ensure background is light for visibility */
+	}
+
+	.hero-bg-section::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 300px; /* Shortened hero background */
+		background-image: var(--bg-image);
+		background-size: cover;
+		background-position: center;
+		opacity: 0.2; /* Increased opacity for visibility */
+		z-index: 0;
+		mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 70%, rgba(0,0,0,0));
+		-webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 70%, rgba(0,0,0,0));
+	}
+
+	.hero-bg-section .inner {
+		position: relative;
+		z-index: 1;
+	}
+
 	@media screen and (max-width: 736px) {
 		#floating-nav {
 			top: auto;
@@ -8687,6 +8786,27 @@ input, select, textarea {
 		#floating-nav ul li a {
 			font-size: 0.7rem;
 			letter-spacing: 0.01rem;
+		}
+
+		#floating-nav ul li .dropdown {
+			top: auto;
+			bottom: 100%;
+			margin-top: 0;
+			margin-bottom: 0.75rem;
+		}
+
+		/* Mobile Bridge */
+		#floating-nav ul li .dropdown::after {
+			top: auto;
+			bottom: -0.75rem;
+			height: 0.75rem;
+		}
+
+		#floating-nav ul li .dropdown::before {
+			top: auto;
+			bottom: -10px;
+			border-width: 10px 10px 0 10px;
+			border-color: rgba(255, 255, 255, 0.95) transparent transparent transparent;
 		}
 	}
 
